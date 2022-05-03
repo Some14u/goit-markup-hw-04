@@ -197,12 +197,12 @@ header .address a {
   line-height: calc(30 / 16);
   letter-spacing: .06em;
   color: var(--white-c);
-  background: var(--prima-c);
+  background-color: var(--prima-c);
   box-shadow: 0px 4px 4px rgba(0,0,0,.15);
 }
 
 .order-section .order:hover {
-  background: var(--prima-c2);
+  background-color: var(--prima-c2);
 }
 
 /* About us */
@@ -445,12 +445,7 @@ footer > address a {
 }
 
 .proj-filter button:hover,
-.proj-filter button:focus {
-  background-color: var(--light-gray3);
-  box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
-}
-
-
+.proj-filter button:focus,
 .proj-filter button.selected {
   background-color: var(--prima-c);
   box-shadow: 0px 3px 1px rgba(0,0,0,.1), 0px 1px 2px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.12);
