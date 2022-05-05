@@ -6,18 +6,23 @@
 
 :root {
   background-color: #e5e5e5;
-  --prima-c: #2196f3;
+  --prima-c-values: 33, 150, 243;
+  --prima-c: rgb(var(--prima-c-values));
   --prima-c2: #188ce8;
   --gray-bg: 47, 48, 58;
   --light-gray: #f5f4fa;
   --light-gray2: #afb1b8;
   --light-gray3: #eceaef;
-  --white-c: #fff;
+  --gray-c: rgba(47, 48, 58, 0.8);
+  --white-c-values: 255, 255, 255;
+  --white-c: rgb(var(--white-c-values));
   --black-c: #000;
   --border-c1: #ececec;
   --border-c2: #eee;
-  --text-c-1: #212121;
-  --text-c-2: #757575;
+  --text-c-1-values: 21, 21, 21;
+  --text-c-1: rgb(var(--text-c-1-values));
+  --text-c-2-values: 117, 117, 117;
+  --text-c-2: rgb(var(--text-c-2-values));;
   --spacer: 30px;
 }
 
@@ -30,6 +35,15 @@ body {
   background-color: var(--white-c);
 }
 
+.container {
+  width: 1200px;
+  padding-left: 15px; /* для узких экранов шириной в 1200 */
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 button[type="button"] {
   text-align: center;
   font-family: 'Roboto', sans-serif;
@@ -40,13 +54,7 @@ button[type="button"] {
   border-radius: 4px;
 }
 
-.container {
-  width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .section {
   padding-top: 94px;
@@ -55,10 +63,14 @@ button[type="button"] {
 
 .hidden {
   position: absolute;
-  left: -10000px;
-  top: auto;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
@@ -116,10 +128,13 @@ header .logo {
   display: flex; 
 }
 
-.main-menu li a {
+.main-menu li:not(last-child) {
   margin-right: 50px;
+}
+
+.main-menu li a {
   font-weight: 500;
-  line-height: calc(16 / 14);
+  padding: calc(24px + 16px / 2) 0;
   letter-spacing: .02em;
   color: var(--text-c-1);
 }
@@ -349,7 +364,8 @@ header .address a {
   fill: var(--light-gray2);
 }
 
-.clients-section a:hover {
+.clients-section a:hover,
+.clients-section a:focus {
   fill: var(--prima-c);
   outline-color: var(--prima-c);
 }
@@ -359,8 +375,18 @@ header .address a {
 
 footer {
   padding: 60px 0;
-  position: relative;
   background-color: rgb(var(--gray-bg));
+}
+
+footer div.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.footer-left-part {
+  width: 231px;
+  margin-right: 70px;
 }
 
 footer .logo {
@@ -390,12 +416,10 @@ footer address a {
 }
 
 .join-socials {
-  position: absolute;
-  top: 72px;
-  left: 516px;
+  margin-right: auto;
 }
 
-.join-socials > div {
+.join-socials > p {
   margin-bottom: 20px;
   font-weight: 700;
   line-height: calc(16 / 14);
@@ -460,9 +484,14 @@ footer address a {
 
 /* Single project */
 
-.project {
+.project > a {
+  display: block;
   width: 370px;
-  box-shadow:inset 0px 0px 0px 1px var(--border-c2); /* 1px border inside the box */
+}
+
+.project > a:hover,
+.project > a:focus {
+  box-shadow: 0px 1px 1px rgba(0,0,0,.12), 0px 4px 4px rgba(0,0,0,.06), 1px 4px 6px rgba(0,0,0,.16);
 }
 
 .project img {
@@ -475,10 +504,17 @@ footer address a {
 
 .project div {
   padding: 20px 24px;
+  padding-top: 20px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 19px;
   font-weight: 700;
   font-size: 18px;
   line-height: calc(36 / 18);
   letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-c2);
+  border-left: 1px solid var(--border-c2);
+  border-right: 1px solid var(--border-c2);
 }
 
 .project h3 {
